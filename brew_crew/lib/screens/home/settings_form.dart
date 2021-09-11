@@ -17,8 +17,8 @@ class _SettingsFormState extends State<SettingsForm> {
   final List<String> sugars = ['0', '1', '2', '3', '4'];
 
   // form values
-  String? _currentName = '';
-  String? _currentSugars = '';
+  String? _currentName;
+  String? _currentSugars;
   int? _currentStrength;
 
   @override
@@ -66,7 +66,7 @@ class _SettingsFormState extends State<SettingsForm> {
                   }).toList(),
                   // if the onChanged callback is null or the list of items is null
                   // then the dropdown button will be disabled
-                  onChanged: (val) => setState(() => _currentSugars = val),
+                  onChanged: (val) => setState(() => _currentSugars = val as String),
                 ),
                 Slider(
                   value: (_currentStrength ?? userData.strength).toDouble(), // initial value
